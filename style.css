@@ -1,0 +1,70 @@
+body {
+  font-family: 'Playfair Display', serif;
+  margin: 0;
+  font-size: 16px;
+  background-color: #fcfcfc;
+  text-align: center;
+  color: #292E33
+}
+
+button {
+  font-family: inherit;
+  font-weight: 900;
+  border: none;
+  padding: 15px;
+  font-size: inherit;
+  border-radius: 8px;
+  background-color: #59817d;
+  color: #fcfcfc;
+  text-shadow: 0px 0px 1px black;
+}
+
+button:hover {
+  background-color: #376963;
+  cursor: pointer;
+  color: #292E33;
+  text-shadow: none;
+}
+
+input {
+  border-radius: 8px;
+  font-size: inherit;
+  text-align: inherit;
+  padding: 15px;
+  border: 1px solid #376963;
+  color: inherit;
+
+}
+
+input:focus {
+  outline: none;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 320px;
+  margin: 20px auto;
+  gap: 10px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+}
+
+ul li {
+  padding: 10px 15px;
+  border-radius: 8px;
+  flex-grow: 1;
+  background-color: #9db1b2;
+}
+
+ul li:hover {
+  background-color: #7b9997;
+  cursor: pointer;
+}
+
