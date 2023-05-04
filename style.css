@@ -27,17 +27,17 @@ button:hover {
 }
 
 input {
-  border-radius: 8px;
-  font-size: inherit;
-  text-align: inherit;
-  padding: 15px;
-  border: 1px solid #376963;
   color: inherit;
-
+  background-color: #DCE1EB;
+  border: 0;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 20px;
+  text-align: center;
 }
 
 input:focus {
-  outline: none;
+  outline-color: #376963;
 }
 
 .app-container {
@@ -60,6 +60,8 @@ ul {
 }
 
 ul li {
+  color: #292E33;
+  font-size: 18px;
   padding: 10px 15px;
   border-radius: 8px;
   flex-grow: 1;
