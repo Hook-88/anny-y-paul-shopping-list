@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"
-import { getDatabase, ref, push, onValue } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
+import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 //url of database
 const appSettings = {
@@ -37,9 +37,10 @@ function clearInputField() {
 onValue(shoppingItemsInDB, function(snapshot) {
   //snapshot.val returns an object.
   //Object.values returns the values of object in an array
-  let shoppingListArray = Object.values(snapshot.val()) 
-  clearShoppingList()
+  let shoppingListArray = Object.entries(snapshot.val()) 
   
+  clearShoppingList()
+
   shoppingListArray.forEach(function(shoppingItem) {
     renderShoppingItem(shoppingItem)
   })
@@ -50,7 +51,21 @@ function clearShoppingList() {
 }
 
 function renderShoppingItem(shoppingItem) {
+  const shoppingItemID = shoppingItem[0]
+  const shoppingItemValue = shoppingItem[1]
+
   const listItemEl = document.createElement('li')
-  listItemEl.textContent = shoppingItem
+
+  listItemEl.textContent = shoppingItemValue
+
+  //add event to remove item from databse
+  listItemEl.addEventListener('dblclick', function() {
+    // ref needs the database and the item url or exact location
+      let exactLocationOfItemInDB = ref(database, `shoppingList/${shoppingItemID}`)
+      remove(exactLocationOfItemInDB)
+  })
+  
+
+
   shoppingListEl.append(listItemEl)
 }

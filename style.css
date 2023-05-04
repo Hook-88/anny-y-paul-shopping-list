@@ -4,7 +4,8 @@ body {
   font-size: 16px;
   background-color: #fcfcfc;
   text-align: center;
-  color: #292E33
+  color: #292E33;
+  user-select: none;
 }
 
 button {
