@@ -35,15 +35,22 @@ function clearInputField() {
 
 // when there's a change in de databse
 onValue(shoppingItemsInDB, function(snapshot) {
-  //snapshot.val returns an object.
-  //Object.values returns the values of object in an array
-  let shoppingListArray = Object.entries(snapshot.val()) 
+  //check if there's any entries in databse
+  if (snapshot.exists()) {
+    //snapshot.val returns an object.
+    //Object.values returns the values of object in an array
+    let shoppingListArray = Object.entries(snapshot.val()) 
   
-  clearShoppingList()
+    clearShoppingList()
 
-  shoppingListArray.forEach(function(shoppingItem) {
-    renderShoppingItem(shoppingItem)
-  })
+    shoppingListArray.forEach(function(shoppingItem) {
+      renderShoppingItem(shoppingItem)
+    })
+  } else {
+    shoppingListEl.innerHTML = "No items here... yet"
+  }
+  
+  
 })
 
 function clearShoppingList() {
